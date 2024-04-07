@@ -1,0 +1,39 @@
+﻿@model List<QuanLyVppMVC.Models.SACH>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Mã sách
+        </th>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Tên tác giả
+        </th>
+        <th>
+            Nhà xuất bản
+        </th>
+        <th>
+            Giá tiền
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Name
+        </th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.Ma_Sach</td>
+            <td>@s.Ten_Sach</td>
+            <td>@s.Nha_xb</td>
+            <td>@s.Ten_Tac_gia</td>
+            <td>@s.Gia_tien</td>
+            <td>@s.So_luong</td>
+            <td>@s.Name</td>
+        </tr>
+    }
+</table>
