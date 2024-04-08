@@ -1,5 +1,10 @@
 ﻿@model List<QuanLyVppMVC.Models.SACH>
 
+@Html.ActionLink("Thêm học sinh", "themButton")
+@*<script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+@*<button type="button" class="btn btn-link" id="themButton">Thêm Sách</button>*@
+@*<button type="button" class="btn btn-link">Link</button>*@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -23,6 +28,13 @@
         <th>
             Name
         </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+
     </tr>
     @foreach (var s in Model)
     {
@@ -34,6 +46,30 @@
             <td>@s.Gia_tien</td>
             <td>@s.So_luong</td>
             <td>@s.Name</td>
+            <td>@Html.ActionLink("Sửa", "suaDS", new { id = s.Ma_Sach })</td>
+            <td>@Html.ActionLink("Xóa", "xoaDS", new { id = s.Ma_Sach })</td>
         </tr>
     }
 </table>
+@*<script>
+        $(document).ready(function () {
+            // Xử lý sự kiện click cho nút "Thêm học sinh"
+            $('#themButton').click(function () {
+                // Thực hiện gọi Ajax
+                $.ajax({
+                    url: '/Home/themButton', // Thay đổi 'ControllerName' và 'Them' thành đường dẫn và tên action của bạn
+                    type: 'POST', // Phương thức POST
+                    dataType: 'json', // Loại dữ liệu trả về
+                    success: function (result) {
+                        // Xử lý kết quả thành công
+                        alert('Học sinh đã được thêm vào danh sách!');
+                        // Cập nhật giao diện hoặc làm bất kỳ thao tác nào cần thiết sau khi thêm học sinh
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý lỗi
+                        alert('Đã xảy ra lỗi: ' + error);
+                    }
+                });
+            });
+        });
+    </script>*@
